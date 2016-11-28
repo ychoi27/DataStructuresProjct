@@ -6,7 +6,7 @@ import javax.swing.event.*;
 public class GUI implements ActionListener{
   
   ArrayList personalsList;
-  PersonalDAO pDAO;
+  DatabaseConnection pDAO;
   
   JFrame myFrame;
   
@@ -43,8 +43,8 @@ public class GUI implements ActionListener{
     
     personalList = new ArrayList();
     
-    // creating PersonalDAO object
-    pDAO = new PersonalDAO();
+    // creating DatabaseConnection object
+    pDAO = new DatabaseConnection();
   }
   
   //**********************************************************************************
@@ -292,7 +292,7 @@ else if (event.getSource () == bBack){
       
     }else{
       
-                 /*get an ArrayList of searched person using PersonDAO*/
+                 /*get an ArrayList of searched person using DatabaseConnection*/
                  personsList = pDAO.searchPerson(name);
       
                  if(personsList.size() == 0){
@@ -336,7 +336,7 @@ else if (event.getSource () == bBack){
     }else{
       
            bBack.setEnabled(true);
-           PersonInfo person = (PersonInfo) personsList.get(recordNumber);
+           UserInfo person = (PersonInfo) personsList.get(recordNumber);
        
       //displaying search record in text fields
          tfName.setText(person.getName());
@@ -370,7 +370,7 @@ else if (event.getSource () == bBack){
          }else{
            
                 bForward.setEnabled(true);
-                PersonInfo person = (PersonInfo) personsList.get(recordNumber);
+                UserInfo person = (PersonInfo) personsList.get(recordNumber);
            
                 //displaying search record in text fieds
                tfName.setText(person.getName());
