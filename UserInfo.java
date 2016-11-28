@@ -1,7 +1,7 @@
 public class UserInfo
 {
 	private String name,address,email;
-	private int id, phone;
+	private int phone;
 
       // default constructor
       public UserInfo()
